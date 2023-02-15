@@ -90,26 +90,26 @@ public class MultiArrays {
         System.out.println("---- Egg Hunt Game ----");
 
         for (int i = 0; i < veld.length; i++) {
-            System.out.print("Enter a row -> ");
+            System.out.print("\nEnter a row between 0 and 9 -> ");
             inputRow = sc.nextInt();
 
             if (inputRow > eggRow) {
-                System.out.println("The egg is located more to the North.");
+                System.out.println("The egg is located more to the North.\n");
             } else if (inputRow < eggRow) {
-                System.out.println("The egg is located more to the South.");
+                System.out.println("The egg is located more to the South.\n");
             }
 
-            System.out.print("Enter a column -> ");
+            System.out.print("Enter a column between 0 and 9 -> ");
             inputColumn = sc.nextInt();
 
             if (inputColumn > eggColumn) {
-                System.out.println("The egg is located more to the West.");
+                System.out.println("The egg is located more to the West.\n");
             } else if (inputColumn < eggColumn) {
-                System.out.println("The egg is located more to the East.");
+                System.out.println("The egg is located more to the East.\n");
             }
 
             if (inputRow == eggRow && inputColumn == eggColumn) {
-                System.out.println("Congratulations! You have found the egg!");
+                System.out.println("\nCongratulations! You have found the egg!");
                 veld[inputRow][inputColumn] = "!";
                 for (int rows = 0; rows < veld.length; rows++) {
                     for (int columns = 0; columns < veld[rows].length; columns++ ) {
@@ -121,15 +121,22 @@ public class MultiArrays {
                 break;
             }
 
-            veld[inputRow][inputColumn] = "x";
+            if (inputRow >= 10 || inputColumn >= 10 || inputRow < 0 || inputColumn < 0) {
+                System.out.println("""
+                        Not allowed!\s
+                        Only numbers between 0 and 9 are allowed!\s
+                        Try again.
+                        """);
+            } else {
+                veld[inputRow][inputColumn] = "x";
 
-            for (int rows = 0; rows < veld.length; rows++) {
-                for (int columns = 0; columns < veld[rows].length; columns++ ) {
-                    System.out.print(veld[rows][columns] + " ");
+                for (int rows = 0; rows < veld.length; rows++) {
+                    for (int columns = 0; columns < veld[rows].length; columns++ ) {
+                        System.out.print(veld[rows][columns] + " ");
+                    }
+                    System.out.println();
                 }
-                System.out.println();
             }
-            System.out.println();
         }
     }
 }
