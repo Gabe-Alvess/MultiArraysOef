@@ -54,21 +54,21 @@ public class MultiArrays {
 
         System.out.println("---- Oefening - 2 ----");
         // 2. Je ziet hieronder 2 arrays en deze moet je met elkaar optellen en uitprinten in een grid.
-        int[][] aArr = {
+        int[][] arrA = {
                 {1, 3, 4},
                 {3, 4, 5}
         };
 
-        int[][] bArr = {
+        int[][] arrB = {
                 {1, 3, 4},
                 {3, 4, 5}
         };
 
         int[][] result = new int[2][3];
 
-        for (int rows = 0; rows < aArr.length; rows++) {
-            for (int colums = 0; colums < aArr[rows].length; colums++) {
-                    result[rows][colums] = aArr[rows][colums] + bArr[rows][colums];
+        for (int rows = 0; rows < arrA.length; rows++) {
+            for (int colums = 0; colums < arrA[rows].length; colums++) {
+                    result[rows][colums] = arrA[rows][colums] + arrB[rows][colums];
                 System.out.print(result[rows][colums] + " ");
             }
             System.out.println();
